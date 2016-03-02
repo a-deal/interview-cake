@@ -1,24 +1,22 @@
 /*
 Write a function to check that a binary tree ↴ is a valid binary search tree;
 
-Sample BT Node Class:
+///////////////// Notes /////////////////////
 
-function BinaryTreeNode(value) {
-    this.value = value;
-    this.left  = null;
-    this.right = null;
-}
+The simplest ways to traverse the tree are depth-first and breadth-first.
+They have the same time cost (they each visit each node once).
+Depth-first traversal of a tree uses memory proportional to the depth of
+the tree, while breadth-first traversal uses memory proportional to the
+breadth of the tree (how many nodes there are on the "level" that has the most nodes).
 
-BinaryTreeNode.prototype.insertLeft = function(value) {
-    this.left = new BinaryTreeNode(value);
-    return this.left;
-};
+Because the tree's breadth can as much as double each time it gets
+one level deeper, depth-first traversal is likely to be more space-efficient
+than breadth-first traversal, though they are strictly both O(n)
+additional space in the worst case. The space savings are obvious if
+we know our binary tree is balanced—its depth will be O(lgn) and its
+breadth will be O(n).
 
-BinaryTreeNode.prototype.insertRight = function(value) {
-    this.right = new BinaryTreeNode(value);
-    return this.right;
-};
-
+//////////////////// Pseudo Code ///////////////////////////
 
 Input  : <object> node
 Output : <boolean>
